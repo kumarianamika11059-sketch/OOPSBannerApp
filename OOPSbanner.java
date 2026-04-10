@@ -1,77 +1,55 @@
-public class OOPSbanner {
-
-    // Inner Class
-    static class CharacterPatternMap {
-        char character;
-            String[] pattern;
-
-        CharacterPatternMap(char character, String[] pattern) {
-            this.character = character;
-         this.pattern = pattern;
-        }
+public class OOPSPattern {
+      public static String[] getOPattern() {
+     return new String[]{
+            " ***  ",
+            "*   * ",
+            "*   * ",
+            "*   * ",
+            "*   * ",
+            "*   * ",
+            " ***  ",
+           };
     }
 
-    // Create pattern maps
-    public static CharacterPatternMap[] createCharacterPatternMaps() {
-          String[] O = {
-                " *** ",
-                "*   *",
-                "*   *",
-                "*   *",
-                "*   *",
-                "*   *",
-                " *** ",
-          };
-
-              String[] P = {
-                "*** ",
-                "*   *",
-                "*   *",
-                "***  ",
-                "*    ",
-                "*    ",
-                "*    ",
+    
+    public static String[] getPPattern() {
+        return new String[]{
+            " ***   ",
+            " *   * ",
+            " *   * ",
+            " ***   ",
+            " *     ",
+            " *     ",
+            " *     ",
         };
-
-        String[] S = {
-                "  ****",
-                "*    ",
-                "*    ",
-                " * ",
-                "    *",
-                "    *",
-                "**** ",
-        };
-
-        CharacterPatternMap[] maps = {
-                new CharacterPatternMap('O', O),
-                new CharacterPatternMap('P', P),
-                new CharacterPatternMap('S', S)
-        };
-
-        return maps;
     }
 
-    // Get pattern
-    public static String[] getCharacterPattern(char ch, CharacterPatternMap[] maps) {
-        for (CharacterPatternMap m : maps)
-            if (m.character == ch)
-                return m.pattern;
-        return new String[7];
+    
+      public static String[] getSPattern() {
+        return new String[]{
+            " ****  ",
+            "*      ",
+            "*      ",
+            " ***   ",
+            "    *  ",
+            "    *  ",
+            "***    ",
+        };
       }
 
-    // Print message
-    public static void printMessage(String msg, CharacterPatternMap[] maps) {
-        for (int i = 0; i < 7; i++) {
-        for (char c : msg.toCharArray())
-              System.out.print(getCharacterPattern(c, maps)[i] + " ");
-            System.out.println();
-        }
-      }
+      public static void main(String[] args) {
 
-    // Main
-    public static void main(String[] args) {
-           CharacterPatternMap[] maps = createCharacterPatternMaps();
-          printMessage("OOPS", maps);
-      }
+        String[] oPattern = getOPattern();
+        String[] pPattern = getPPattern();
+        String[] sPattern = getSPattern();
+
+        for (int i = 0; i < oPattern.length; i++) {
+            System.out.println(
+                oPattern[i] + "  " +
+                oPattern[i] + "  " +
+                pPattern[i] + "  " +
+                sPattern[i]
+             );
+     }
+       }
 }
